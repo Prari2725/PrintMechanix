@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import './home.css'
+import { Link } from 'react-router-dom';
+
 function Home() {
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggleDropdown = () => {
+      setDropdownOpen(prev => !prev);
+    };
+    
+
   const [files, setFiles] = useState([]);
 
   const handleFileDrop = (e) => {
@@ -25,7 +34,7 @@ function Home() {
     <>
       <header className="header">
         <div className="container header-inner">
-          <div className="logo" aria-label="Voodoo Manufacturing Logo">VOODOO MANUFACTURING</div>
+          <div className="logo" aria-label="Voodoo Manufacturing Logo">PrintMechanix Manufacturing</div>
           <nav className="nav-desktop">
             <ul>
               <li><button className="nav-btn"><span className="material-icons">help_outline</span> How it works</button></li>
@@ -39,11 +48,25 @@ function Home() {
             </ul>
           </nav>
           <div className="dropdown">
-                  <button className="nav-btn">
-                    <span className="material-icons">account_circle</span> My account <span className="material-icons dropdown-icon">arrow_drop_down</span>
-                  </button>
-                  {/* Dropdown menu can be implemented here */}
-                </div>
+            <button
+                className="nav-btn dropdown-toggle"
+                onClick={toggleDropdown}
+                aria-haspopup="true"
+                aria-expanded={isDropdownOpen}
+            >
+    <span className="material-icons">account_circle</span> My account <span className="material-icons dropdown-icon">arrow_drop_down</span>
+  </button>
+
+  {isDropdownOpen && (
+    <div className="dropdown-menu" role="menu">
+      <Link to="/signin" className="dropdown-item" onClick={() => setDropdownOpen(false)}>Sign In</Link>
+      <Link to="/signup" className="dropdown-item" onClick={() => setDropdownOpen(false)}>Sign Up</Link>
+    </div>
+  )}
+</div>
+
+
+
           {/* Mobile hamburger menu placeholder */}
         </div>
       </header>
@@ -183,7 +206,7 @@ function Home() {
           gap: 6px;
           font-weight: 600;
           color: #111;
-          transition: color 0.3s ease;
+          transition: color 5s ease;
         }
         .nav-btn:hover,
         .nav-btn:focus {
@@ -200,6 +223,44 @@ function Home() {
           gap: 6px;
         }
 
+
+        /* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle:focus + .dropdown-menu,
+.dropdown-toggle:hover + .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.5s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #f0f0f0;
+  color: #6a00ff;
+}
         /* Upload Area */
         .upload-area-container {
           display: flex;

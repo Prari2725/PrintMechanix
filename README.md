@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# PrintMechanix
+A full-stack 3D printing service platform where users can upload their 3D models (STL/OBJ), get instant print quotes, and request custom prints. Built to streamline the user-to-printer workflow for makers, hobbyists, and professionals
+>>>>>>> b4afa384be8cfe42135b84f1398359782f950998

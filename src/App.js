@@ -1,9 +1,9 @@
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Component/Home/home';
-import { Link } from 'react-router-dom';
-import SignUp from './Component/My_Account/SignUp';
+
+import Home from './Component/Home/Home';
+import SignUp from './Component/SignUp/SignUp';
 
 function App() {
   return (

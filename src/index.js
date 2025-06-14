@@ -4,6 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+
+// Dynamically add Material Icons stylesheet link
+const link = document.createElement('link');
+link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+link.rel = 'stylesheet';
+document.head.appendChild(link);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

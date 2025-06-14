@@ -48,7 +48,6 @@ const iconStyles = {
 
 export default function GettingStartedBtn() {
     const navigate = useNavigate();
-    // Handle card hover effect
     return (
         <div style={pageStyles}>
             {/* Responsive Header */}

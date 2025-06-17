@@ -13,6 +13,7 @@ import AdminDashboard from './pages/AdminDashboard';
 
 import UserManagement from './pages/admin/UserManagement';
 import Signup from './pages/Signup';
+import QuickQuote from './pages/QuickQuote';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="/signup" element={<Signup/>} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/quick-quote" element={<QuickQuote />} />
               
               {/* Protected Routes */}
               {/* <Route

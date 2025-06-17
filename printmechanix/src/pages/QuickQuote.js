@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaFolderOpen } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function BrowseFile() {
+function QuickQuote() {
   const [files, setFiles] = useState([]);
 
   const handleFileDrop = (e) => {
@@ -76,4 +76,4 @@ function BrowseFile() {
   );
 }
 
-export default BrowseFile;
+export default QuickQuote;

@@ -110,14 +110,19 @@ const Home = () => {
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                   Streamline your 3D printing journey with PrintMechanix. Upload, customize, track, and manage your prints—all in one powerful, easy-to-use platform.
                 </p>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <Link to="/login" className="button-hover w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 md:py-4 md:text-lg md:px-10">
-                      Get started
-                    </Link>
-                  </div>
+                <div class="flex justify-center items-center mt-4">
+  <div class="rounded-md shadow">
+    <a
+      href="/login"
+      class="button-hover w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 md:py-4 md:text-lg md:px-10"
+    >
+      Get started
+    </a>
+  </div>
+
+
                   <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <Link to="/about" className="button-hover w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md bg-gradient-to-r from-blue-50 to-indigo-50 text-indigo-700 hover:from-blue-100 hover:to-indigo-100 md:py-4 md:text-lg md:px-10">
+                    <Link to="/about" className="no-underline button-hover w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md bg-gradient-to-r from-blue-50 to-indigo-50 text-indigo-700 hover:from-blue-100 hover:to-indigo-100 md:py-4 md:text-lg md:px-10">
                       Learn more
                     </Link>
                   </div>
@@ -230,12 +235,12 @@ const Home = () => {
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div className="inline-flex rounded-md shadow">
-              <Link to="/login" className="button-hover inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600">
-                Get started
+              <Link to="/login" className="no-underline button-hover inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600">
+                Get started 
               </Link>
             </div>
             <div className="ml-3 inline-flex rounded-md shadow">
-              <Link to="/contact" className="button-hover inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+              <Link to="/contact" className="no-underline button-hover inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
                 Contact sales
               </Link>
             </div>

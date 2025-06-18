@@ -110,7 +110,7 @@ const Home = () => {
                 <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                   Streamline your 3D printing journey with PrintMechanix. Upload, customize, track, and manage your prints—all in one powerful, easy-to-use platform.
                 </p>
-                <div class="flex justify-center items-center mt-4">
+                <div className="flex justify-center items-center mt-4">
                 <div className="flex justify-center items-center mt-4">
   {/* Get Started Button */}
   <div className="rounded-md shadow">

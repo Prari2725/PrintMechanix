@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import { FaFolderOpen } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import ModelViewer from './ModelViewer';
 
 function QuickQuote() {
   const [files, setFiles] = useState([]);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   const handleFileDrop = (e) => {
     e.preventDefault();
@@ -22,21 +25,41 @@ function QuickQuote() {
     e.preventDefault();
     e.stopPropagation();
   };
+  
+
   const handleSubmit = async () => {
     const formData = new FormData();
     files.forEach(file => formData.append('files', file));
   
+    setUploadProgress(1); // Show progress bar (not zero to avoid flicker)
+  
     try {
       const response = await axios.post('http://localhost:8080/api/files/upload', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+        headers: { 'Content-Type': 'multipart/form-data' },
+        onUploadProgress: (progressEvent) => {
+          const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          setUploadProgress(percent);
+        }
       });
+  
       alert('Files uploaded successfully!');
       console.log(response.data);
+  
+      // ✅ Create local preview URL of first uploaded file
+      const fileURL = URL.createObjectURL(files[0]);
+      setPreviewUrl(fileURL);
+  
     } catch (error) {
       console.error(error);
       alert('Upload failed');
+    } finally {
+      // ⛔ Delay hiding progress bar briefly so user sees 100%
+      setTimeout(() => setUploadProgress(0), 1000);
     }
   };
+  
+  
+  
   
 
   return (
@@ -79,6 +102,26 @@ function QuickQuote() {
     Upload Files
   </button>
 </div>
+{uploadProgress > 0 && uploadProgress < 100 && (
+  <div className="mt-3 w-100">
+    <div className="progress">
+      <div
+        className="progress-bar progress-bar-striped progress-bar-animated"
+        role="progressbar"
+        style={{ width: `${uploadProgress}%` }}
+        aria-valuenow={uploadProgress}
+        aria-valuemin="0"
+        aria-valuemax="100"
+      >
+        {uploadProgress}%
+      </div>
+    </div>
+  </div>
+)}
+
+
+
+
         </section>
 
         {files.length > 0 && (
@@ -90,8 +133,17 @@ function QuickQuote() {
                   {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
                 </li>
               ))}
+    
+
             </ul>
           </section>
+        )}
+
+        {previewUrl && (
+          <div className="mt-5 w-100">
+            <h5 className="text-primary fw-bold">3D Model Preview:</h5>
+            <ModelViewer fileUrl={previewUrl} />
+          </div>
         )}
       </main>
     </>

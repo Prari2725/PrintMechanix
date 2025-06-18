@@ -15,6 +15,7 @@ import UserManagement from './pages/admin/UserManagement';
 import Signup from './pages/Signup';
 import QuickQuote from './pages/QuickQuote';
 
+
 const App = () => {
   return (
     <AuthProvider>

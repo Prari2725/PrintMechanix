@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FaFolderOpen } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 function QuickQuote() {
   const [files, setFiles] = useState([]);
@@ -21,6 +22,22 @@ function QuickQuote() {
     e.preventDefault();
     e.stopPropagation();
   };
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    files.forEach(file => formData.append('files', file));
+  
+    try {
+      const response = await axios.post('http://localhost:8080/api/files/upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      alert('Files uploaded successfully!');
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+      alert('Upload failed');
+    }
+  };
+  
 
   return (
     <>
@@ -57,6 +74,11 @@ function QuickQuote() {
               />
             </label>
           </div>
+          <div className="mt-3">
+  <button onClick={handleSubmit} className="btn btn-success">
+    Upload Files
+  </button>
+</div>
         </section>
 
         {files.length > 0 && (

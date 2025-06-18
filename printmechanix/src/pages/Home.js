@@ -111,21 +111,28 @@ const Home = () => {
                   Streamline your 3D printing journey with PrintMechanix. Upload, customize, track, and manage your prints—all in one powerful, easy-to-use platform.
                 </p>
                 <div class="flex justify-center items-center mt-4">
-  <div class="rounded-md shadow">
+                <div className="flex justify-center items-center mt-4">
+  {/* Get Started Button */}
+  <div className="rounded-md shadow">
     <a
       href="/login"
-      class="button-hover w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 md:py-4 md:text-lg md:px-10"
+      className="no-underline button-hover inline-flex items-center justify-center w-48 h-14 text-base font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600"
     >
       Get started
     </a>
   </div>
 
+  {/* Learn More Button */}
+  <div className="rounded-md shadow ml-3">
+    <Link
+      to="/about"
+      className="no-underline button-hover inline-flex items-center justify-center w-48 h-14 text-base font-medium rounded-md text-indigo-700 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100"
+    >
+      Learn more
+    </Link>
+  </div>
+</div>
 
-                  <div className="mt-3 sm:mt-0 sm:ml-3">
-                    <Link to="/about" className="no-underline button-hover w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md bg-gradient-to-r from-blue-50 to-indigo-50 text-indigo-700 hover:from-blue-100 hover:to-indigo-100 md:py-4 md:text-lg md:px-10">
-                      Learn more
-                    </Link>
-                  </div>
                 </div>
               </div>
             </main>

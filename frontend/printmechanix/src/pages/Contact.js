@@ -54,8 +54,8 @@ const Contact = () => {
               <h4 className="font-medium text-indigo-700">Address</h4>
               <p>printmechanix, 3rd Floor</p>
               <p>Plot No. 10, Sector 3</p>
-              <p>karvenagar, Pune</p>
-              <p>Maharashtra - 411052</p>
+              <p>abc, xyz</p>
+              <p>Maharashtra - 000000</p>
               <p>India</p>
             </div>
           </div>

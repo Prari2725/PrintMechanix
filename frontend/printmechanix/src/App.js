@@ -14,7 +14,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import UserManagement from './pages/admin/UserManagement';
 import Signup from './pages/Signup';
 import QuickQuote from './pages/QuickQuote';
-import PreviewPage from './pages/PreviewPage';
+
+import ModelPreview from './pages/ModelPreview';
 
 
 const App = () => {
@@ -31,7 +32,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/quick-quote" element={<QuickQuote />} />
-              <Route path="/preview" element={<PreviewPage />} />
+              <Route path="/preview" element={<ModelPreview />} />
               {/* Protected Routes */}
               {/* <Route
                 path="/invoices"

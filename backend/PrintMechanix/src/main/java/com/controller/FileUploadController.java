@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.entity.UploadedFile;
+import com.entity.User;
 import com.repository.UploadedFileRepository;
+import com.repository.UserRepository;
+import com.util.AuthUtils;
 
 import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins = "http://localhost:3000")
@@ -27,6 +30,8 @@ import lombok.RequiredArgsConstructor;
 public class FileUploadController {
 
     private final UploadedFileRepository fileRepository;
+    private final UserRepository userRepository;
+    private final AuthUtils authUtils;
 
     private static final Set<String> ALLOWED_EXTENSIONS = Set.of(
             "stl", "obj", "wrl", "step", "stp", "iges", "igs", "3mf", "dxf", "dwg", "zip"
@@ -37,9 +42,10 @@ public class FileUploadController {
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFiles(@RequestParam("files") MultipartFile[] files) {
         List<UploadedFile> savedFiles = new ArrayList<>();
+        User currentUser = authUtils.getCurrentUser();
 
         try {
-            Files.createDirectories(uploadDir); // ensure folder exists
+            Files.createDirectories(uploadDir);
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create upload directory.");
         }
@@ -64,6 +70,7 @@ public class FileUploadController {
                 uploadedFile.setFileType(file.getContentType());
                 uploadedFile.setFileSize(file.getSize());
                 uploadedFile.setFilePath(filePath.toString());
+                uploadedFile.setUser(currentUser);
 
                 fileRepository.save(uploadedFile);
                 savedFiles.add(uploadedFile);
@@ -77,8 +84,17 @@ public class FileUploadController {
         return ResponseEntity.ok(savedFiles);
     }
 
-    @GetMapping
+
+    @GetMapping("/getfiles")
     public ResponseEntity<List<UploadedFile>> getAllUploadedFiles() {
         return ResponseEntity.ok(fileRepository.findAll());
     }
+    @GetMapping("/my-files")
+    public ResponseEntity<List<UploadedFile>> getFilesForCurrentUser() {
+        User currentUser = authUtils.getCurrentUser();
+        List<UploadedFile> userFiles = fileRepository.findByUserId(currentUser.getId());
+        return ResponseEntity.ok(userFiles);
+    }
+
+    
 }

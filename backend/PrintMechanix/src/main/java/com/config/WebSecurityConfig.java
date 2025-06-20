@@ -40,7 +40,7 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
                 .requestMatchers("/api/public/**").permitAll()
-                .requestMatchers("/api/files/upload").permitAll()
+                .requestMatchers("/api/files/upload").authenticated()
                 .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated()
             )

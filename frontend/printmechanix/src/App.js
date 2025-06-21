@@ -5,7 +5,6 @@ import AdminRoute from './components/AdminRoute/AdminRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Navbar from './components/Navbar/Navbar';
-
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer/Footer';
@@ -16,6 +15,9 @@ import Signup from './pages/Signup';
 import QuickQuote from './pages/QuickQuote';
 
 import ModelPreview from './pages/ModelPreview';
+import CartPage from './pages/CartPage';
+import ThankYou from './pages/ThankYou';
+
 
 
 const App = () => {
@@ -33,6 +35,8 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/quick-quote" element={<QuickQuote />} />
               <Route path="/preview" element={<ModelPreview />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/thank-you" element={<ThankYou />} />
               {/* Protected Routes */}
               {/* <Route
                 path="/invoices"

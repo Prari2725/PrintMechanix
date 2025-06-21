@@ -35,6 +35,7 @@ const Navbar = () => {
               {user && (
                 <>
                   <Link to="/quick-quote" className="no-underline text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Quick Quote</Link>
+                  <Link to="/cart" className="no-underline text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">My Cart</Link>
                   {/* <Link to="/create-invoice" className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Create Invoice</Link> */}
                 </>
               )}
@@ -82,7 +83,8 @@ const Navbar = () => {
           <Link to="/contact" className="no-underline text-gray-700 hover:text-indigo-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Contact</Link>
           {user ? (
             <>
-              <Link to="/quick-quote" className="no-underline text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Quick Quote</Link>
+              <Link to="/quick-quote" className="no-underline text-gray-700 hover:text-indigo-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Quick Quote</Link>
+              <Link to="/cart" className="no-underline text-gray-700 hover:text-indigo-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">My Cart</Link>
              {/*} <Link to="/create-invoice" className="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Create Invoice</Link> */}
               <button 
                 onClick={handleLogout}

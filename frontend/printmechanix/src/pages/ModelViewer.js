@@ -38,9 +38,9 @@ const ModelViewer = ({ file }) => {
     <div style={{ height: '300px', width: '100%' }}>
       <Canvas camera={{ position: [0, 50, 15] }}>
         <ambientLight />
-        <directionalLight position={[0, 5, 5]} />
+        <directionalLight position={[5, 5, 5]} />
         <Suspense fallback={<span>Loading 3D Model...</span>}>
-          <PresentationControls speed={1.5} global zoom={0.1} polar={[-0.1, Math.PI / 4]}>
+          <PresentationControls speed={1.5} global zoom={0.5} polar={[-0.1, Math.PI / 4]}>
             <Stage environment={null}>
              {/* Axis helper for reference */}
              <primitive object={new THREE.AxesHelper(2)} />
